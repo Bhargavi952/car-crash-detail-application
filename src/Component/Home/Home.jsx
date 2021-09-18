@@ -4,7 +4,7 @@ import { fetchData } from "../../Redux/actions";
 import Card from "../Card/Card";
 import { makeStyles } from "@material-ui/core/styles";
 import Pagination from "@material-ui/lab/Pagination";
-import styles from './styles.module.css'
+import styles from "./styles.module.css";
 const useStyles = makeStyles({
   page: {
     marginTop: "100px",
@@ -20,16 +20,23 @@ const useStyles = makeStyles({
 const Home = () => {
   const classes = useStyles();
   const [page, setPage] = useState(1);
-  const [date , setDate] = useState("")
-//   console.log(date)
+  const [date, setDate] = useState("");
+  //   console.log(date)
 
+  const [toggle, setToggle] = useState(true);
+  const changeToList = () => {
+    setToggle(false);
+  };
+  const changeToGrid = () => {
+    setToggle(true);
+  };
   const handleChange = (event, value) => {
     setPage(value);
   };
 
   const data = useSelector((state) => state.data);
+  console.log(data);
   const isLoading = useSelector((state) => state.isLoading);
-  console.log(data, isLoading);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -40,10 +47,21 @@ const Home = () => {
     <div>
       <div style={{ background: "black", height: "90px", width: "100%" }}></div>
 
-      <input type="date" onChange={(e)=>setDate(e.target.value)}/>
-      <Card data={data} date={date} />
+      <input
+        type="text"
+        onChange={(e) => setDate(e.target.value)}
+        value={date}
+        name="date"
+        className="input-filter"
+        placeholder="filter based on date"
+      />
+      <div>
+        <button onClick={changeToGrid}>Grid</button>
+        <button onClick={changeToList}>List</button>
+      </div>
+      <Card data={data} date={date} toggle={toggle} />
       <Pagination
-      size="large"
+        size="large"
         className={classes.Pagination}
         count={50}
         page={page}

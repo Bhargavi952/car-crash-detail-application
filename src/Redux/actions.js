@@ -57,5 +57,16 @@ const fetchData = (page) => async (dispatch) => {
     dispatch(carFailure(error));
   }
 };
+const fetchSingleData = (collision_id) => async (dispatch) => {
+  dispatch(singleCarRequest());
+  try {
+    let response = await axios.get(
+      `https://data.cityofnewyork.us/resource/h9gi-nx95.json?collision_id=${collision_id}`
+    );
+    dispatch(singleCarSuccess(response.data));
+  } catch (error) {
+    dispatch(singleCarFailure(error));
+  }
+};
 
-export { carRequest, carSuccess, carFailure, fetchData };
+export { carRequest, carSuccess, carFailure, fetchData, fetchSingleData };

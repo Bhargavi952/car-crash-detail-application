@@ -1,0 +1,12 @@
+ table, th, td {
+     border: 1px solid black;
+ }
+
+ td {
+     width: 31%;
+     text-align: center;
+ }
+
+ .link {
+     text-decoration: none;
+ }

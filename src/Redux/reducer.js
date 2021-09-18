@@ -10,6 +10,7 @@ const init = {
   isLoading: false,
   isError: false,
   data: [],
+  singleData: [],
 };
 
 export const cardetailsReducer = (state = init, { type, payload }) => {
@@ -21,7 +22,7 @@ export const cardetailsReducer = (state = init, { type, payload }) => {
       };
     }
     case CAR_DETAILS_SUCCESS:
-    //   console.log(payload);
+      //   console.log(payload);
       return {
         ...state,
         data: payload,
@@ -31,11 +32,29 @@ export const cardetailsReducer = (state = init, { type, payload }) => {
     case CAR_DETAILS_FAILURE:
       return {
         ...state,
-
-        payload,
         isError: true,
         isLoading: false,
       };
+    case SINGLE_CAR_DETAILS_REQUEST: {
+      return {
+        ...state,
+        isLoading: true,
+      };
+    }
+    case SINGLE_CAR_DETAILS_SUCCESS: {
+      return {
+        ...state,
+        singleData: payload,
+        isLoading: false,
+      };
+    }
+    case SINGLE_CAR_DETAILS_FAILURE: {
+      return {
+        ...state,
+        isError: true,
+        isLoading: false,
+      };
+    }
 
     default:
       return state;
