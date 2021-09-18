@@ -45,11 +45,11 @@ const singleCarFailure = () => {
   };
 };
 
-const fetchData = () => async (dispatch) => {
+const fetchData = (page) => async (dispatch) => {
   dispatch(carRequest());
   try {
     let res = await axios.get(
-      "https://data.cityofnewyork.us/resource/h9gi-nx95.json"
+      `https://data.cityofnewyork.us/resource/h9gi-nx95.json?crash_date=2014-01-21T00:00:00.000&vehicle_type_code2=PASSENGER%20VEHICLE&$offset=${page}&$limit=12`
     );
     // console.log(res);
     dispatch(carSuccess(res.data));

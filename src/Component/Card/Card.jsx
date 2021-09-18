@@ -10,11 +10,10 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(1),
     textAlign: "center",
     color: theme.palette.text.secondary,
-    width: "90%",
+    width: "80%",
     border: "none",
     minHeight: "200px",
-    margin: "5px 0",
-    border: "3px solid red",
+    margin: "10px 0",
     "&:hover": {
       transform: "scale(0.9)",
       transition: " all 0.3s ease-in-out",
@@ -24,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
   p: {
     textAlign: "center",
     fontWeight: "600",
-    color: "#01bf71",
+    color: "#000000",
     fontSize: "18px",
   },
 }));
@@ -42,7 +41,7 @@ const Card = ({ data }) => {
       >
         {data.map((item, id) => {
           return (
-            <Grid key={id} item xs={12} sm={6} md={4} lg={3}>
+            <Grid key={id} item xs={12} sm={6} md={4} lg={4}>
               <Paper className={classes.paper}>
                 <p className={classes.p}>{item.collision_id}</p>
 
