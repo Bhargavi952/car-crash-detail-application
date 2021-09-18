@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchData } from "../../Redux/actions";
 import Card from "../Card/Card";
-// import Pagination from "./Pagination";
 import { makeStyles } from "@material-ui/core/styles";
 import Pagination from "@material-ui/lab/Pagination";
 import styles from './styles.module.css'
@@ -22,7 +21,8 @@ const Home = () => {
   const classes = useStyles();
   const [page, setPage] = useState(1);
   const [date , setDate] = useState("")
-  console.log(date)
+//   console.log(date)
+
   const handleChange = (event, value) => {
     setPage(value);
   };
@@ -41,7 +41,7 @@ const Home = () => {
       <div style={{ background: "black", height: "90px", width: "100%" }}></div>
 
       <input type="date" onChange={(e)=>setDate(e.target.value)}/>
-      <Card data={data} />
+      <Card data={data} date={date} />
       <Pagination
       size="large"
         className={classes.Pagination}

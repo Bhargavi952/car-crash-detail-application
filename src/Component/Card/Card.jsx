@@ -2,6 +2,7 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
+import moment from "moment";
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -28,8 +29,14 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Card = ({ data }) => {
+const Card = ({ data, date }) => {
   const classes = useStyles();
+
+  const dateFilter = (item) => {
+    // console.log(date, moment(item.crash_date).utc().format("YYYY-MM-DD"))
+
+    return moment(item.crash_date).utc().format("YYYY-MM-DD").includes(date);
+  };
   return (
     <div>
       <Grid
@@ -39,7 +46,7 @@ const Card = ({ data }) => {
         container
         spacing={2.5}
       >
-        {data.map((item, id) => {
+        {data?.filter(dateFilter).map((item, id) => {
           return (
             <Grid key={id} item xs={12} sm={6} md={4} lg={4}>
               <Paper className={classes.paper}>
