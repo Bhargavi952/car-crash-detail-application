@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from "react-redux";
 import { fetchData } from '../../Redux/actions';
+import Card from '../Card/Card';
 
 
 const Home = () => {
@@ -16,7 +17,10 @@ const Home = () => {
     
     return (
         <div>
-            welcome Home
+            <div style={{background:"black" , height:"90px", width:"100%"}}>
+
+            </div>
+            <Card data={data}/>
         </div>
     )
 }
