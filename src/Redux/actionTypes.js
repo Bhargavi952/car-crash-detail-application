@@ -1,0 +1,10 @@
+//action type for fetch all the car details
+export const CAR_DETAILS_REQUEST = "CAR_DETAILS_REQUEST"
+export const CAR_DETAILS_SUCCESS = "CAR_DETAILS_SUCCESS"
+export const CAR_DETAILS_FAILURE = "CAR_DETAILS_FAILURE"
+
+
+//actiontype for the single car details
+export const SINGLE_CAR_DETAILS_REQUEST = "SINGLE_CAR_DETAILS_REQUEST"
+export const SINGLE_CAR_DETAILS_SUCCESS = "SINGLE_CAR_DETAILS_SUCCESS"
+export const SINGLE_CAR_DETAILS_FAILURE = "SINGLE_CAR_DETAILS_FAILURE"
