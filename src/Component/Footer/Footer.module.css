@@ -19,9 +19,10 @@
     width: 100%;
     bottom: 0;
     margin-top: 40px;
+    position: sticky;
+    bottom: 0;
 }
 .social_icons :hover{
-    /* color: #11bf71; */
     color: rgb(22, 17, 17);
 }
 .line{

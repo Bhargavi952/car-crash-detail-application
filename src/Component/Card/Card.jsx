@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
-import moment from "moment";
 import { Link } from "react-router-dom";
 import styles from "./styles.module.css";
 
@@ -19,7 +18,6 @@ const useStyles = makeStyles((theme) => ({
     minHeight: "200px",
     margin: "10px 0",
     fontSize: "15px",
-    // border:"1px solid black",
     boxShadow: "rgba(75, 73, 73, 0.75) 0px 5px 15px",
     zIndex: "2",
 
@@ -36,16 +34,11 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Card = ({ data, date, toggle }) => {
+const Card = ({ data, toggle }) => {
   const classes = useStyles();
 
   console.log(toggle);
 
-  const dateFilter = (item) => {
-    // console.log(date, moment(item.crash_date).utc().format("YYYY-MM-DD"));
-
-    return moment(item.crash_date).utc().format("YYYY-MM-DD").includes(date);
-  };
   return (
     <>
       {toggle ? (
@@ -56,7 +49,7 @@ const Card = ({ data, date, toggle }) => {
           container
           spacing={2.5}
         >
-          {data?.filter(dateFilter).map((item) => {
+          {data?.map((item) => {
             return (
               <Grid key={item.collision_id} item xs={12} sm={6} md={4} lg={4}>
                 <Link className={styles.link} to={`/${item.collision_id}`}>
@@ -69,8 +62,7 @@ const Card = ({ data, date, toggle }) => {
                     </p>
                     <p className={classes.p}>Time : {item.crash_time}</p>
                     <p className={classes.p}>
-                      Date :{" "}
-                      {moment(item.crash_date).utc().format("DD-MM-YYYY")}
+                      Date : {item.crash_date.slice(0, 10)}
                     </p>
                   </Paper>
                 </Link>
@@ -80,15 +72,15 @@ const Card = ({ data, date, toggle }) => {
         </Grid>
       ) : (
         <div className={styles.table_container}>
-          <div  style={{display:"flex", justifyContent:"space-around"}}>
+          <div style={{ display: "flex", justifyContent: "space-around" }}>
             <h3>Vehicle 1</h3>
             <h3>Vehicle 2</h3>
             <h3>Time</h3>
             <h3>Date</h3>
           </div>
-          <br/>
+          <br />
           <table>
-            {data?.filter(dateFilter).map((item) => {
+            {data?.map((item) => {
               return (
                 <Link
                   className={styles.link}
@@ -99,9 +91,7 @@ const Card = ({ data, date, toggle }) => {
                     <td>{item.vehicle_type_code1}</td>
                     <td>{item.vehicle_type_code2}</td>
                     <td>{item.crash_time}</td>
-                    <td>
-                      {moment(item.crash_date).utc().format("DD-MM-YYYY")}
-                    </td>
+                    <td>{item.crash_date.slice(0, 10)}</td>
                   </tr>
                 </Link>
               );

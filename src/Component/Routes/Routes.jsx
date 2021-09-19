@@ -2,13 +2,12 @@ import React from "react";
 import Home from "../Home/Home";
 import { Switch, Route } from "react-router-dom";
 import SingleCarDetail from "../CarDetail/SingleCarDetail";
-import Footer from "../Footer/Footer";
 import Navbar from "../NavBar/Navbar";
 
 const Routes = () => {
   return (
     <div>
-      <Navbar/>
+      <Navbar />
       <Switch>
         <Route exact path="/">
           <Home />
@@ -17,7 +16,6 @@ const Routes = () => {
           <SingleCarDetail />
         </Route>
       </Switch>
-      <Footer />
     </div>
   );
 };

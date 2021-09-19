@@ -6,6 +6,7 @@ import img1 from "../../Images/accident.jpeg";
 import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import CircularProgress from "@mui/material/CircularProgress";
+import Socialmedia from "../Footer/Socialmedia";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -15,17 +16,15 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(1),
     textAlign: "center",
     color: theme.palette.text.secondary,
-    width: "90%",
+    width: "70%",
     border: "none",
     minHeight: "200px",
-    margin: "10px 0",
+    margin: "3% 16%",
     fontSize: "15px",
-    // [theme.breakpoints.down("sm")]: {
-    //   fontSize: "10px",
-    // },
 
     boxShadow: "rgba(75, 73, 73, 0.75) 0px 5px 15px",
     zIndex: "2",
+    borderRadius: "10px",
 
     "&:hover": {
       transform: "scale(0.9)",
@@ -33,18 +32,16 @@ const useStyles = makeStyles((theme) => ({
       cursor: "pointer",
     },
   },
-  p: {
-    textAlign: "center",
-    fontWeight: "600",
-    color: "#000000",
-  },
+
   left_container: {
     width: "50%",
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
+    height: "340px",
     [theme.breakpoints.down("sm")]: {
-      height: "360px",
+      height: "200px",
+      width: "90%",
     },
   },
   right_container: {
@@ -52,6 +49,11 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     margin: "0 10px",
     gap: "20px",
+    [theme.breakpoints.down("sm")]: {
+      width: "90%",
+      fontSize: "8px",
+      color: "#000",
+    },
   },
   container: {
     display: "flex",
@@ -60,10 +62,8 @@ const useStyles = makeStyles((theme) => ({
     width: "80%",
     margin: "auto",
     [theme.breakpoints.down("sm")]: {
-      flexDirection:"column",
-      fontSize: "18px",
+      flexDirection: "column",
     },
-    // border: "1px solid red"
   },
   loader: {
     width: "100vw",
@@ -96,10 +96,10 @@ const SingleCarDetail = () => {
         <>
           {singledata?.map((item) => {
             return (
-              // <Paper className={classes.paper}>
+              <Paper key={item.collision_id} className={classes.paper}>
                 <div className={classes.container}>
                   <div className={classes.left_container}>
-                    <img width="100%" src={img1} alt="image" />
+                    <img width="100%" height="100%" src={img1} alt="image" />
                   </div>
                   <div className={classes.right_container}>
                     <div>
@@ -107,7 +107,7 @@ const SingleCarDetail = () => {
                       <h4>Vehicle-1 : {item.vehicle_type_code1}</h4>
                       <h4>Vehicle-2 : {item.vehicle_type_code2}</h4>
                       <p>Crash-Date : {item.crash_date}</p>
-                      <p>Crash-Time : {item.crash_time}</p>
+                      <p>Crash-Time : {item.crash_date.slice(0, 10)}</p>
                       <p>Street-Name : {item.on_street_name}</p>
                     </div>
                     <div>
@@ -130,11 +130,12 @@ const SingleCarDetail = () => {
                     </div>
                   </div>
                 </div>
-              //  </Paper>
+              </Paper>
             );
           })}
         </>
       )}
+      <Socialmedia />
     </div>
   );
 };

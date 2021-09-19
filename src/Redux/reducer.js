@@ -24,7 +24,7 @@ export const cardetailsReducer = (state = init, { type, payload }) => {
     case CAR_DETAILS_SUCCESS:
       //   console.log(payload);
       return {
-        ...state,
+         ...state,
         data: payload,
         isLoading: false,
       };

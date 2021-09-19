@@ -8,6 +8,8 @@ import CircularProgress from "@mui/material/CircularProgress";
 import AppsIcon from "@mui/icons-material/Apps";
 import ReorderIcon from "@mui/icons-material/Reorder";
 import styles from "./styles.module.css";
+import Footer from "../Footer/Footer";
+import Slide from "../Slide/Silde";
 
 const useStyles = makeStyles((theme) => ({
   page: {
@@ -30,13 +32,25 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "center",
     alignItems: "center",
   },
+  search_input: {
+    display: "flex",
+    width: "40%",
+    margin: "auto",
+    justifyContent: "center",
+    alignItems: "center",
+    gap: "10px",
+  },
+  heading: {
+    fontSize: "50px",
+    textAlign: "center",
+  },
 }));
 
 const Home = () => {
   const classes = useStyles();
   const [page, setPage] = useState(1);
-  const [date, setDate] = useState("");
-  //   console.log(date)
+  const [date, setDate] = useState("2014-01-20");
+  console.log(date);
 
   const [toggle, setToggle] = useState(true);
   const changeToList = () => {
@@ -48,31 +62,38 @@ const Home = () => {
   const handleChange = (event, value) => {
     setPage(value);
   };
+  const filterByDate = () => {
+    dispatch(fetchData(date));
+    // console.log(data);
+  };
 
   const data = useSelector((state) => state.data);
-  console.log(data);
+  // console.log(data);
   const isLoading = useSelector((state) => state.isLoading);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchData(page));
-  }, [page]);
+    dispatch(fetchData(page, date));
+  }, [page, date]);
 
   return (
     <>
-    <h1 style={{textAlign:"center"}} >Accident Details</h1>
-
-
-      <div className={styles.btn_container}>
-        Filter by Date :
+      <Slide />
+      <h1 className={classes.heading}>Car Crash Details </h1>
+      <h2 style={{ textAlign: "center" }}> Search By Date </h2>
+      <div className={classes.search_input}>
         <input
           type="date"
           onChange={(e) => setDate(e.target.value)}
-          // value={date}
-          // name="date"
-          // className={styles.input_filter}
+          value={date}
           placeholder="Enter the Date...."
         />
+        <button className={styles.search_btn} onClick={filterByDate}>
+          Search
+        </button>
+      </div>
+
+      <div className={styles.btn_container}>
         <button className={styles.btn} onClick={changeToGrid}>
           <AppsIcon />
         </button>
@@ -86,7 +107,7 @@ const Home = () => {
         </div>
       ) : (
         <>
-          <Card data={data} date={date} toggle={toggle} />
+          <Card data={data} toggle={toggle} />
           <Pagination
             size="large"
             className={classes.Pagination}
@@ -96,6 +117,7 @@ const Home = () => {
           />
         </>
       )}
+      <Footer />
     </>
   );
 };

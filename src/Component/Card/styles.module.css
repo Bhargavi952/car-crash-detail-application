@@ -17,7 +17,7 @@ td:nth-of-type(1), td:nth-of-type(2) {
 }
 
 .link:hover {
-    border: 1px solid #000 ;
+    border: 1px solid #000;
 }
 
 .table_container {
