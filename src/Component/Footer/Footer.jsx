@@ -1,10 +1,10 @@
 import React from "react";
 import styles from "./Footer.module.css";
-// import FacebookIcon from '@material-ui/icons/Facebook';
-// import TwitterIcon from '@material-ui/icons/Twitter';
-// import YouTubeIcon from '@material-ui/icons/YouTube';
-// import MailIcon from '@material-ui/icons/Mail';
-// import InstagramIcon from '@material-ui/icons/Instagram';
+import FacebookIcon from '@mui/icons-material/Facebook';
+import TwitterIcon from '@mui/icons-material/Twitter';
+import YouTubeIcon from '@mui/icons-material/YouTube';
+import MailIcon from '@mui/icons-material/Mail';
+import InstagramIcon from '@mui/icons-material/Instagram';
 
 const Footer = () => {
   return (
@@ -33,13 +33,13 @@ const Footer = () => {
       </div>
       <div className={styles.line}></div>
 
-      {/* <div className={styles.social_icons} >
+      <div className={styles.social_icons} >
               <FacebookIcon/>
               <TwitterIcon/>
               <YouTubeIcon/>
               <MailIcon/>
               <InstagramIcon/>
-          </div> */}
+          </div>
     </div>
   );
 };

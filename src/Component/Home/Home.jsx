@@ -8,8 +8,7 @@ import CircularProgress from "@mui/material/CircularProgress";
 import AppsIcon from "@mui/icons-material/Apps";
 import ReorderIcon from "@mui/icons-material/Reorder";
 import styles from "./styles.module.css";
-import Navbar from "./Navbar";
-import { display } from "@mui/system";
+
 const useStyles = makeStyles((theme) => ({
   page: {
     marginTop: "100px",
@@ -19,9 +18,9 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    margin:"60px 0",
+    margin: "60px 0",
     [theme.breakpoints.down("sm")]: {
-      
+      margin: "30px 0",
     },
   },
   loader: {
@@ -61,7 +60,7 @@ const Home = () => {
 
   return (
     <>
-      {/* <Navbar /> */}
+
 
       <div className={styles.btn_container}>
         Filter by Date :

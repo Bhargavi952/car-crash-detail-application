@@ -3,7 +3,7 @@ import Home from "../Home/Home";
 import { Switch, Route } from "react-router-dom";
 import SingleCarDetail from "../CarDetail/SingleCarDetail";
 import Footer from "../Footer/Footer";
-import Navbar from "../Home/Navbar";
+import Navbar from "../NavBar/Navbar";
 
 const Routes = () => {
   return (

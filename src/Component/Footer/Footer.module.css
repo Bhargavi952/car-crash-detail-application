@@ -1,6 +1,6 @@
 .footer_cont{
     width: 100%;
-    background-color: rgb(22, 17, 17);
+    background-color: #767676;
     height: inherit;
 }
 .footer_description{
@@ -15,13 +15,14 @@
     height: 60px;
     gap: 25px;
     color: #bac5c0;
-    background-color: rgb(22, 17, 17);
+    background-color: #767676;
     width: 100%;
     bottom: 0;
     margin-top: 40px;
 }
 .social_icons :hover{
-    color: #11bf71;
+    /* color: #11bf71; */
+    color: rgb(22, 17, 17);
 }
 .line{
     height: 1px;
@@ -33,7 +34,7 @@
     color: white;
 }
 .footer_description > div > p{
-    color: rgb(107, 104, 104);
+    color: rgb(22, 17, 17);
 }
 .footer_description > div > p:hover{
     color: #11bf71;
