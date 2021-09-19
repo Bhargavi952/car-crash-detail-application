@@ -1,5 +1,6 @@
 # Car Crash Details Application
 
+Car crash Details application  is a app where user can get all the details of Vehicle Collision
 
 ## Run Locally
 
