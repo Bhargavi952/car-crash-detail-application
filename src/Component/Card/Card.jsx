@@ -18,6 +18,11 @@ const useStyles = makeStyles((theme) => ({
     border: "none",
     minHeight: "200px",
     margin: "10px 0",
+    fontSize: "15px",
+    // border:"1px solid black",
+    boxShadow: "rgba(75, 73, 73, 0.75) 0px 5px 15px",
+    zIndex: "2",
+
     "&:hover": {
       transform: "scale(0.9)",
       transition: " all 0.3s ease-in-out",
@@ -28,7 +33,6 @@ const useStyles = makeStyles((theme) => ({
     textAlign: "center",
     fontWeight: "600",
     color: "#000000",
-    fontSize: "18px",
   },
 }));
 
@@ -57,11 +61,14 @@ const Card = ({ data, date, toggle }) => {
               <Grid key={item.collision_id} item xs={12} sm={6} md={4} lg={4}>
                 <Link className={styles.link} to={`/${item.collision_id}`}>
                   <Paper className={classes.paper}>
-                    <p className={classes.p}>{item.collision_id}</p>
-                    <p className={classes.p}>{item.vehicle_type_code1}</p>
-                    <p className={classes.p}>{item.vehicle_type_code2}</p>
-                    <p className={classes.p}>Time: {item.crash_time}</p>
-                    <p className={classes.p}>Date:{item.crash_date}</p>
+                    <p className={classes.p}>
+                      Vehicle 1 : {item.vehicle_type_code1}
+                    </p>
+                    <p className={classes.p}>
+                      Vehicle 2 : {item.vehicle_type_code2}
+                    </p>
+                    <p className={classes.p}>Time : {item.crash_time}</p>
+                    <p className={classes.p}>Date : {item.crash_date}</p>
                   </Paper>
                 </Link>
               </Grid>

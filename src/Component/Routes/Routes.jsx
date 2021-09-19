@@ -2,10 +2,13 @@ import React from "react";
 import Home from "../Home/Home";
 import { Switch, Route } from "react-router-dom";
 import SingleCarDetail from "../CarDetail/SingleCarDetail";
+import Footer from "../Footer/Footer";
+import Navbar from "../Home/Navbar";
 
 const Routes = () => {
   return (
     <div>
+      <Navbar/>
       <Switch>
         <Route exact path="/">
           <Home />
@@ -14,6 +17,7 @@ const Routes = () => {
           <SingleCarDetail />
         </Route>
       </Switch>
+      <Footer />
     </div>
   );
 };

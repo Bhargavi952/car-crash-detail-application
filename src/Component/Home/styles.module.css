@@ -1,0 +1,94 @@
+.btn {
+    border: none;
+    outline: none;
+    background: transparent;
+}
+
+.btn_container {
+    width: 90%;
+    display: flex;
+    justify-content: flex-end;
+    margin: auto;
+    gap: 10px;
+    margin-bottom: 20px;
+    font-weight: 900;
+}
+
+.nav_container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    min-height: 50px;
+    align-items: center;
+    /* background: chartreuse; */
+    background: #007fff;
+    margin-bottom: 40px;
+    position: sticky;
+    top: 0;
+    z-index: 5;
+    font-size: 20px;
+}
+
+.left_cont {
+    padding: 0 30px;
+}
+
+.right_cont {
+    display: flex;
+    justify-content: space-around;
+    width: 30%;
+    gap: 10px;
+}
+
+.link {
+    text-decoration: none;
+}
+
+.login_btn {
+    background: transparent;
+    height: 30px;
+    outline: none;
+    border: 1px solid #000;
+    width: 100px;
+    border-radius: 15px;
+}
+
+.login_btn:hover {
+    background: #fff;
+    color: #000;
+    transform: scale(0.9);
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.desc {
+    text-decoration: none;
+    color: #000;
+    padding: 0 5px;
+}
+
+.desc:hover {
+    transform: scale(0.9);
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+    color: #fff;
+}
+
+@media screen and (max-width:420px) {
+    .right_cont {
+        width: 55%;
+        justify-content: flex-start;
+    }
+    .desc {
+        display: none;
+    }
+    .login_btn {
+        width: 80px;
+    }
+}
+
+@media screen and (max-width:420px) {
+    .btn_container{
+        font-size: 10px;
+    }
+}

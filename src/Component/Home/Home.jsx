@@ -4,8 +4,13 @@ import { fetchData } from "../../Redux/actions";
 import Card from "../Card/Card";
 import { makeStyles } from "@material-ui/core/styles";
 import Pagination from "@material-ui/lab/Pagination";
+import CircularProgress from "@mui/material/CircularProgress";
+import AppsIcon from "@mui/icons-material/Apps";
+import ReorderIcon from "@mui/icons-material/Reorder";
 import styles from "./styles.module.css";
-const useStyles = makeStyles({
+import Navbar from "./Navbar";
+import { display } from "@mui/system";
+const useStyles = makeStyles((theme) => ({
   page: {
     marginTop: "100px",
   },
@@ -14,8 +19,19 @@ const useStyles = makeStyles({
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
+    margin:"60px 0",
+    [theme.breakpoints.down("sm")]: {
+      
+    },
   },
-});
+  loader: {
+    width: "100vw",
+    height: "60vh",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+}));
 
 const Home = () => {
   const classes = useStyles();
@@ -44,30 +60,43 @@ const Home = () => {
   }, [page]);
 
   return (
-    <div>
-      <div style={{ background: "black", height: "90px", width: "100%" }}></div>
+    <>
+      {/* <Navbar /> */}
 
-      <input
-        type="text"
-        onChange={(e) => setDate(e.target.value)}
-        value={date}
-        name="date"
-        className="input-filter"
-        placeholder="filter based on date"
-      />
-      <div>
-        <button onClick={changeToGrid}>Grid</button>
-        <button onClick={changeToList}>List</button>
+      <div className={styles.btn_container}>
+        Filter by Date :
+        <input
+          type="date"
+          onChange={(e) => setDate(e.target.value)}
+          // value={date}
+          // name="date"
+          // className={styles.input_filter}
+          placeholder="Enter the Date...."
+        />
+        <button className={styles.btn} onClick={changeToGrid}>
+          <AppsIcon />
+        </button>
+        <button className={styles.btn} onClick={changeToList}>
+          <ReorderIcon />
+        </button>
       </div>
-      <Card data={data} date={date} toggle={toggle} />
-      <Pagination
-        size="large"
-        className={classes.Pagination}
-        count={50}
-        page={page}
-        onChange={handleChange}
-      />
-    </div>
+      {isLoading ? (
+        <div className={classes.loader}>
+          <CircularProgress />
+        </div>
+      ) : (
+        <>
+          <Card data={data} date={date} toggle={toggle} />
+          <Pagination
+            size="large"
+            className={classes.Pagination}
+            count={50}
+            page={page}
+            onChange={handleChange}
+          />
+        </>
+      )}
+    </>
   );
 };
 
