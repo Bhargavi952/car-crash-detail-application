@@ -60,6 +60,7 @@ const Home = () => {
 
   return (
     <>
+    <h1 style={{textAlign:"center"}} >Accident Details</h1>
 
 
       <div className={styles.btn_container}>

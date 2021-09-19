@@ -20,9 +20,9 @@ const useStyles = makeStyles((theme) => ({
     minHeight: "200px",
     margin: "10px 0",
     fontSize: "15px",
-    [theme.breakpoints.down("sm")]: {
-      fontSize: "10px",
-    },
+    // [theme.breakpoints.down("sm")]: {
+    //   fontSize: "10px",
+    // },
 
     boxShadow: "rgba(75, 73, 73, 0.75) 0px 5px 15px",
     zIndex: "2",
@@ -57,8 +57,13 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    width: "100%",
+    width: "80%",
     margin: "auto",
+    [theme.breakpoints.down("sm")]: {
+      flexDirection:"column",
+      fontSize: "18px",
+    },
+    // border: "1px solid red"
   },
   loader: {
     width: "100vw",
@@ -91,7 +96,7 @@ const SingleCarDetail = () => {
         <>
           {singledata?.map((item) => {
             return (
-              <Paper className={classes.paper}>
+              // <Paper className={classes.paper}>
                 <div className={classes.container}>
                   <div className={classes.left_container}>
                     <img width="100%" src={img1} alt="image" />
@@ -125,7 +130,7 @@ const SingleCarDetail = () => {
                     </div>
                   </div>
                 </div>
-              </Paper>
+              //  </Paper>
             );
           })}
         </>

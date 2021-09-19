@@ -34,10 +34,10 @@
     color: white;
 }
 .footer_description > div > p{
-    color: rgb(22, 17, 17);
+    color: #bac5c0;
 }
 .footer_description > div > p:hover{
-    color: #11bf71;
+    color: rgb(22, 17, 17);
 }
 @media screen and (max-width:420px){
     .footer_cont{

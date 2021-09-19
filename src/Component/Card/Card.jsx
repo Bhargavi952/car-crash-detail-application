@@ -68,7 +68,10 @@ const Card = ({ data, date, toggle }) => {
                       Vehicle 2 : {item.vehicle_type_code2}
                     </p>
                     <p className={classes.p}>Time : {item.crash_time}</p>
-                    <p className={classes.p}>Date : {item.crash_date}</p>
+                    <p className={classes.p}>
+                      Date :{" "}
+                      {moment(item.crash_date).utc().format("DD-MM-YYYY")}
+                    </p>
                   </Paper>
                 </Link>
               </Grid>
@@ -76,24 +79,35 @@ const Card = ({ data, date, toggle }) => {
           })}
         </Grid>
       ) : (
-        <table>
-          {data?.filter(dateFilter).map((item) => {
-            return (
-              <Link
-                className={styles.link}
-                key={item.collision_id}
-                to={`/${item.collision_id}`}
-              >
-                <tr>
-                  <td>{item.vehicle_type_code1}</td>
-                  <td>{item.vehicle_type_code2}</td>
-                  <td>{item.crash_time}</td>
-                  <td>{item.crash_date}</td>
-                </tr>
-              </Link>
-            );
-          })}
-        </table>
+        <div className={styles.table_container}>
+          <div  style={{display:"flex", justifyContent:"space-around"}}>
+            <h3>Vehicle 1</h3>
+            <h3>Vehicle 2</h3>
+            <h3>Time</h3>
+            <h3>Date</h3>
+          </div>
+          <br/>
+          <table>
+            {data?.filter(dateFilter).map((item) => {
+              return (
+                <Link
+                  className={styles.link}
+                  key={item.collision_id}
+                  to={`/${item.collision_id}`}
+                >
+                  <tr>
+                    <td>{item.vehicle_type_code1}</td>
+                    <td>{item.vehicle_type_code2}</td>
+                    <td>{item.crash_time}</td>
+                    <td>
+                      {moment(item.crash_date).utc().format("DD-MM-YYYY")}
+                    </td>
+                  </tr>
+                </Link>
+              );
+            })}
+          </table>
+        </div>
       )}
     </>
   );
