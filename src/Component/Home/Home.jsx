@@ -39,6 +39,10 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "center",
     alignItems: "center",
     gap: "10px",
+    [theme.breakpoints.down("sm")]: {
+      width: "60%",
+      marginBottom: "20px",
+    },
   },
   heading: {
     fontSize: "50px",
